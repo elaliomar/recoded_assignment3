@@ -1,0 +1,28 @@
+{
+  "name": "curriculum-backend-expressjs-api",
+  "version": "1.0.0",
+  "description": "Express JS API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReCoded-Org/curriculum-backend-expressjs-api.git"
+  },
+  "author": "Re:Coded",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReCoded-Org/curriculum-backend-expressjs-api/issues"
+  },
+  "homepage": "https://github.com/ReCoded-Org/curriculum-backend-expressjs-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "supertest": "^6.1.6"
+  }
+}
