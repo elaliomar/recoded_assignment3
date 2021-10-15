@@ -21,7 +21,7 @@ const memes = [
 		name: 'yusuf',
 		imgSource:
 			'https://cdn.vox-cdn.com/thumbor/cV8X8BZ-aGs8pv3D-sCMr5fQZyI=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19933026/image.png',
-		genre: [ 'comedy', 'dark', 'witty' ],
+		genre: ['dark', 'witty' ],
 		id: '1'
 	},
 	{
@@ -48,6 +48,20 @@ app.post('/memes', (req, res, next) => {
 	res.status(201).send(newMeme);
 });
 
+app.get('/memes/filter', (req,res) => {
+	const { genre } = req.query;
+
+	if(!genre) {
+		res.status(400).json("please make sure you send a valid query parameter");
+	}
+
+	const filteredMemes = memes.filter(meme => {
+		return meme.genre.includes(genre);
+	})
+
+	res.status(200).send(filteredMemes);
+})
+
 app.get('/memes/:id', (req, res, next) => {
 	const meme = memes.find((el) => el.id === req.params.id);
 	if (!meme) {
@@ -66,6 +80,8 @@ app.put('/memes/:id', (req, res, next) => {
 
 	res.status(200).send(memes[memeIndex]);
 });
+
+
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);

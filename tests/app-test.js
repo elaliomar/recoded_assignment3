@@ -32,6 +32,7 @@ describe("POST /memes", () => {
       .expect("Content-Type", /json/)
       .expect(201, (err, res) => {
         if (err) return done(err);
+        // use exact insitead of to be a 
         expect(res.body.name).to.be.a("string");
         expect(res.body.imgSource).to.be.a("string");
         expect(res.body.genre).to.be.a("array");
@@ -114,4 +115,35 @@ describe("GET /memes/:id", () => {
       });
     });
   });
-    
+
+  describe("GET /memes/filter", () => {
+    it("filter memes by genre",(done) => {
+      const genre = "comedy";
+
+      request
+      .get("/memes/filter?genre="+ genre)
+      .expect("Content-Type", /json/)
+      .expect(200, (err, res) => {
+        if (err) return done(err);
+        res.body.forEach((meme) => {
+          expect(meme.genre).to.include(genre);
+        })
+        done();
+      });
+    });
+
+    it("responds with 400 when invalid parameter is passed",(done) => {
+      const genre = "";
+
+      request
+      .get("/memes/filter?genre="+ genre)
+      .expect("Content-Type", /json/)
+      .expect(400)
+      .expect('"please make sure you send a valid query parameter"')
+      .end(err => {
+        if (err) return done(err);
+        done();
+      });
+      
+    });
+  });
