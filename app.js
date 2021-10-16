@@ -48,6 +48,20 @@ app.post('/memes', (req, res, next) => {
 	res.status(201).send(newMeme);
 });
 
+app.delete('/memes/:id', (req,res) => {
+	const memeIndex = memes.findIndex(el => el.id === req.params.id);
+	console.log(req.params.id);
+	if (memeIndex === -1) {
+		res.status(422).json('meme not found');
+	}
+	
+	const filteredMemes = memes.filter(meme => {
+		return meme.id !== req.params.id
+	});
+	
+	res.status(200).send(filteredMemes);
+});
+
 app.get('/memes/filter', (req,res) => {
 	const { genre } = req.query;
 
@@ -72,12 +86,11 @@ app.get('/memes/:id', (req, res, next) => {
 
 app.put('/memes/:id', (req, res, next) => {
 	const memeIndex = memes.findIndex((el) => el.id === req.params.id);
-	memes[memeIndex] = req.body;
-
+	
 	if (memeIndex === -1) {
 		res.status(422).json('meme not found');
 	}
-
+	memes[memeIndex] = req.body;
 	res.status(200).send(memes[memeIndex]);
 });
 

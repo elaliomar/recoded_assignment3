@@ -147,3 +147,20 @@ describe("GET /memes/:id", () => {
       
     });
   });
+
+  describe("DELETE /memes/:id", () => {
+    it("deletes correct item",(done) => {
+      const id = "2";
+
+      request
+      .delete("/memes/"+ id)
+      .expect("Content-Type", /json/)
+      .expect(200, (err, res) => {
+        if (err) return done(err);
+        res.body.forEach((meme) => {
+          expect(meme.id).to.not.equal(id);
+        })
+        done();
+      });
+    });
+  });
