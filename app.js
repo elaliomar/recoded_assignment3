@@ -41,7 +41,7 @@ app.post('/memes', (req, res, next) => {
 	const { name, imgSource, genre, id } = req.body;
 
 	if (!id) {
-		return res.status(400).json('meme not created');
+		return res.status(400).json('meme not created please provide an id');
 	}
 	const newMeme = { name, imgSource, genre, id };
 	memes.push(newMeme);
