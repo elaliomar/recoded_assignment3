@@ -68,5 +68,6 @@ git commit -m "solve the lab"
 git push origin main
 ```
 
-## Conclusion
-We practicied different kinds of request in this lab and there's more that we will cover in the upcoming labs and readings
+## References
+- [Query strings and params](https://stackabuse.com/get-query-strings-and-parameters-in-express-js/)
+- [Using HTTP methods for RESTful services](https://www.restapitutorial.com/lessons/httpmethods.html)
