@@ -1,7 +1,7 @@
 {
   "name": "curriculum-backend-expressjs-api",
   "version": "1.0.0",
-  "description": "Express JS API",
+  "description": "Express.js Meme API",
   "main": "app.js",
   "scripts": {
     "test": "mocha ./tests",
