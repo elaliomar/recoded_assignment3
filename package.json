@@ -4,7 +4,7 @@
   "description": "Express.js Meme API",
   "main": "app.js",
   "scripts": {
-    "test": "mocha ./tests",
+    "test": "mocha --exit ./tests",
     "start": "nodemon app.js"
   },
   "repository": {
