@@ -15,7 +15,7 @@ This time we have already started the `app.js` file for you. Looking at it you w
 
 **NOTE**: Please don't make any changes to the `memes` variable in the code.
 
-Run `npm install` to install all the packages listed in the `package.json` file.
+Run `npm install` to install all the packages listed in the `package.json` file. Then use `npm start` to start the Express server.
 
 ## Requirements
 1. Create an API endpoint to return all memes.
